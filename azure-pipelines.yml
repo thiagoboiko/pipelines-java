@@ -12,10 +12,12 @@ stages:
     - task: Maven@3
       inputs:
         mavenPomFile: 'pom.xml'
-        goals: 'package'
+        goals: 'clean package'
+        javaHomeOption: 'JDKVersion'
+        jdkVersionOption: '1.8'
 
 - stage: Deploy
   jobs:
-  - job: FakeDeploy
+  - job: Deploy
     steps:
     - script: echo "Deploy realizado"
